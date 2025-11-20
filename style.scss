@@ -1,0 +1,343 @@
+//ANIMATIONS
+@keyframes animate-title{
+    0% {transform:scale(0)}
+    100%{transform:scale(1)}
+}
+
+@keyframes appear{
+    0%{ opacity:0;}
+    50%{opacity:0;}
+    100%{opacity:1;}
+}
+
+@keyframes scrolling {
+    0% {transform: translate3d(0,0,0);      /* position initiale à droite */}
+    100% {transform: translate3d(-100%,0,0);  /* position finale à gauche */}
+}
+
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    width:100%; 
+    max-width:100%;
+    font-size: 1.2rem;
+    min-height: 100%!important;
+}
+
+$color--main: #f76300;
+
+.bg--color{
+    background-color: $color--main;
+    opacity: 0.9;
+}
+
+.text--color{
+    color: $color--main;
+}
+
+.bg--img{
+    background-image: url("images/macon-aigues-mortes-david-barry-mur-creation.png");
+}
+
+.navbar {
+    z-index: 5;
+    opacity: 0.9;
+    .navbar-toggler{
+        box-shadow: 0 0 0 0 !important;
+        outline:0!important;
+        & span:hover{
+            background-color: $color--main!important;
+            color: #fff!important;
+            border-color: #000!important;
+        }
+    }
+    & a:hover{
+        color: #fff!important;
+    }
+    .nav-link:hover,
+    .home{
+        background-color: #fff;
+        border-radius: 10px;
+        color: $color--main!important;
+        border: 2px solid #fff;
+    }
+}
+
+
+h2{
+    padding-top: 4.5rem!important;
+}
+
+.text{
+    animation: animate-title 1700ms ease;
+    max-width: 17rem;
+    font-size:1.8rem;
+    box-shadow: 3px 3px 5px rgb(39, 38, 38);
+    letter-spacing: 0.2rem;;
+}
+
+.new{
+    animation: appear 3000ms ease-out;
+}
+
+.old{
+    animation: appear 3000ms ease-out ;
+}
+
+.barrow{
+    animation: run 6000ms infinite;
+}
+// menu defilant
+.scrolling_menu{
+    max-width: 80%;
+    margin: 1.5em auto 2em;
+    border: 3px solid #000;
+    overflow: hidden;
+    font-size: 1.3rem;
+    background-color:#fff!important;
+    color: $color--main!important;
+    box-shadow: 0 .15em .3em  #000,inset 0 0 0.3em .1em #fff;
+    &> :first-child {
+        display: inline-block;
+        padding-right: 2em;
+        padding-left: 100%;
+        white-space: nowrap;
+        animation: scrolling 45s infinite linear;
+    }
+    .scrolling_title{
+        font-weight: 700;
+    }
+    .bullets{
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+}
+
+.left{
+    float: left;
+}
+
+.border--color{
+    border: 2px solid $color--main;
+}
+
+.footer{
+    font-size: 0.8rem!important;
+    line-height: 1.15;
+    opacity: 0.9;
+    & a:hover{
+        color: #fff!important;
+        font-weight: 700;
+    }
+}
+
+//PAGE SERVICES.HTML
+.maconnerie, 
+.toiture{
+    font-weight: 400;
+}
+
+//PAGE PHOTOS.HTML
+.before-after{
+    padding: 0.5rem;
+    border-style:dashed double;
+    max-width: 35rem;
+    border-color: rgb(95, 95, 95);
+}
+
+
+@media all and (max-width: 350px){
+    .navbar h1 a{
+        padding-left: 0!important;
+    }
+    .navbar svg{
+        display: none;
+    }
+    .phone{
+        padding-left: 0!important;
+    }
+    .d-flex .before-after img{
+        max-width: 7rem!important;
+    }
+}
+
+@media all and (max-width:400px){
+    .navbar h1 a{
+        font-size: 0.8rem!important;
+    }
+    .navbar-toggler{
+        padding:0rem!important;
+    }
+    .container .carousel,
+    .contaner .carousel-second,
+    .carousel-third{
+        padding-left:0rem!important;
+    }
+}
+
+@media all and (max-width:480px){
+    .carousel,
+    .carousel-second,
+    .carousel-third{
+        padding-left: 1rem!important;
+    }
+    .before-after{
+        max-width: 90%!important;
+        & .img{
+            max-width: 8rem!important;
+        }
+    }
+    .row{
+        margin-right: 0!important;
+        margin-left: 0!important;
+    }
+}
+
+@media all and (max-width:500px){
+    h1 a{
+        font-size: 1rem!important;
+    }
+    .footer{
+        flex-direction: column;
+    }
+}
+
+@media all and (max-width:600px){
+    main img {
+        max-width: 17rem
+    }
+    @keyframes run{
+        0% {margin-left: 0}
+        50% {margin-left:70%;}
+        90%{transform: scale(-1, 1);}
+        95%{margin-left:0px}
+        96%{transform: scale(-1,1);}
+        97% {margin-left:0}
+        100% {margin-left:0}
+    }
+    .bio{
+        padding: 1rem 2rem;
+    }
+}
+
+@media all and (min-width:600px){
+    .bio{
+        padding: 3rem;
+    }
+    .text{
+        max-width: 35rem;
+    }
+    .run{
+        max-width: 32rem;
+    }
+    .container {
+       & .carousel,
+       & .carousel-second,
+       & .carousel-third{
+            padding-left: 0rem!important;
+        }
+    }
+    .roof{
+        max-width: 18rem!important;
+    }
+    @keyframes run{
+        0% {margin-left: 0}
+        50% {margin-left:80%;}
+        90%{transform: scale(-1, 1);}
+        95%{margin-left:0px}
+        96%{transform: scale(-1,1);}
+        97% {margin-left:0}
+        100% {margin-left:0}
+    }
+}
+
+@media all and (min-width: 750px){
+    .container .carousel,
+    .container .carousel-second,
+    .carousel-third{
+        padding-left: 4.5rem!important;
+    }
+}
+
+@media all and (min-width: 970px){
+    .bio{
+        padding: 3rem 4rem;
+    }
+    .container .carousel,
+    .container .carousel-second,
+    .carousel-third{
+        padding-left: 10.5rem!important;
+    }
+    .services{
+        display: flex;
+        justify-content: space-around;
+        align-items: baseline;
+        & .toiture{
+            padding-top: 3rem;
+        }
+    }
+    @keyframes run{
+        0% {margin-left: 0}
+        50% {margin-left:87%;}
+        90%{transform: scale(-1, 1);}
+        95%{margin-left:0px}
+        96%{transform: scale(-1,1);}
+        97% {margin-left:0}
+        100% {margin-left:0}
+    }
+}
+
+@media all and (max-width: 992px){
+    .navbar .nav-link{
+        padding-left: 0.5rem;
+    }
+}
+
+@media all and (max-width:1150px){
+    .arrow-right{
+        display: none;
+    }
+}
+
+@media all and (min-width:1150px){
+    .arrow-down{
+        display:none;
+    }
+    .index-photos{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    section {
+        & img,
+        & .photos{
+            max-width:20rem;
+            margin: 0!important;
+            
+        }
+        & svg{
+            margin: 1rem;
+        }
+        .row>* {
+            padding-left: 0!important;
+            padding-right: 0!important;
+        }
+    }
+    .container .carousel,
+    .container .carousel-second,
+    .carousel-third{
+        width: 20rem;
+        max-width:20rem;
+        padding:0!important;
+    }
+    .slick-next, .slick-arrow{
+        display: none;
+    }
+}
+
+@media all and (min-width:1350px){
+    .index-photos{
+        max-width: 1350px;
+        margin:auto;
+    }
+}
