@@ -170,8 +170,18 @@ font-family: 'Playfair Display', serif;
   height: 300px!important;
   object-fit: contain;
   max-width: 50%;
+    filter: blur(0.3px) brightness(1.2);
+  transform: rotate(1deg);
+  animation: shake 0.5s infinite;
 }
 
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
 @media all and (max-width: 350px) {
   .navbar h1 a {
     padding-left: 0 !important;
