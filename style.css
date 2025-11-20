@@ -158,6 +158,20 @@ font-family: 'Playfair Display', serif;
   border-color: #5f5f5f;
 }
 
+.img-travail{
+  display:flex;
+  flex-wrap: wrap;
+  gap:0;
+  justify-content: center;
+}
+
+.img-travail img{
+  width: 300px;
+  height: 300px!important;
+  object-fit: contain;
+  max-width: 50%;
+}
+
 @media all and (max-width: 350px) {
   .navbar h1 a {
     padding-left: 0 !important;
