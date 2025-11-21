@@ -75,17 +75,58 @@ html {
 }
 
 h2 {
-  padding-top: 4.5rem !important;
+  padding-top: 7.5rem !important;
   font-family: 'Cinzel Decorative', display;
 }
 
+@keyframes flashyTitle {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(10deg) scale(1.2); }
+  50%  { transform: rotate(-10deg) scale(0.9); }
+  75%  { transform: rotate(15deg) scale(1.3); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
 .text {
-  animation: animate-title 1700ms ease;
+ animation: frameShake 1s infinite alternate;
   max-width: 17rem;
   font-size: 1.8rem;
   box-shadow: 3px 3px 5px #272626;
   letter-spacing: 0.2rem;
   font-family: 'Amaranth', sans-serif;
+}
+
+@keyframes frameShake {
+  0% { transform: translate(0,0) rotate(0deg); }
+  25% { transform: translate(-3px, 2px) rotate(-1deg); }
+  50% { transform: translate(2px, -3px) rotate(1deg); }
+  75% { transform: translate(-2px, 3px) rotate(-1deg); }
+  100% { transform: translate(3px, -2px) rotate(1deg); }
+}
+
+.text p {
+      animation: neonFlicker 1.5s infinite, shakeSkew 2s infinite;
+  text-shadow:
+    0 0 5px orange,
+    0 0 10px rgb(21, 255, 0),
+    0 0 20px rgb(25, 0, 255),
+    0 0 40px rgb(255, 0, 13);
+}
+
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 5px orange,
+      0 0 10px rgb(21, 255, 0),
+      0 0 20px rgb(25, 0, 255),
+      0 0 40px rgb(255, 0, 13);
+    color: rgb(108, 96, 143);
+  }
+  20%, 24%, 55% {
+    text-shadow: 0 0 2px #fff, 0 0 5px orange;
+    color: yellow;
+  }
 }
 
 .new {
@@ -158,11 +199,14 @@ font-family: 'Playfair Display', serif;
   border-color: #5f5f5f;
 }
 
+
+/* animation image before footer */ 
 .img-travail{
   display:flex;
   flex-wrap: wrap;
   gap:0;
   justify-content: center;
+  align-items:center;
 }
 
 .img-travail img{
@@ -182,6 +226,69 @@ font-family: 'Playfair Display', serif;
   75% { transform: rotate(-1deg); }
   100% { transform: rotate(0deg); }
 }
+
+/* animation titre du bas */
+.card-img, .index-photos img{
+    width:300px!important;
+    height:auto!important;
+}
+
+
+.img-bottom{
+  text-align: center;
+}
+
+.img-bottom img{
+  width:1000px;
+  max-width: 70%;
+}
+
+
+
+.cta{
+   margin: 500px 0;
+    font-size: 3rem;
+    text-align: center;
+    color: #ff0000;
+    animation: crazyAnimation 5s infinite linear;
+}
+
+
+
+@keyframes crazyAnimation {
+    0% {
+        transform: rotate(0deg) scale(1) skew(0deg, 0deg);
+        color: #ff0000;
+        text-shadow: 0 0 0px #000;
+    }
+
+    25% {
+        transform: rotate(360deg) scale(1.1) skew(30deg, 30deg);
+        color: #00ff00;
+        text-shadow: 2px 2px 20px #000, -2px -2px 20px #000;
+    }
+
+    50% {
+        transform: rotate(720deg) scale(0.8) skew(-30deg, -30deg);
+        color: #0000ff;
+        text-shadow: 0 0 50px #fff, 0 0 50px #000;
+    }
+
+    75% {
+        transform: rotate(1080deg) scale(1.05) skew(60deg, 60deg);
+        color: #ff00ff;
+        text-shadow: 5px 5px 30px #000, -5px -5px 30px #000;
+    }
+
+    100% {
+        transform: rotate(1440deg) scale(0.5) skew(0deg, 0deg);
+        color: #ff0000;
+        text-shadow: 0 0 0px #000;
+    }
+}
+
+
+
 @media all and (max-width: 350px) {
   .navbar h1 a {
     padding-left: 0 !important;

@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-sitemap: https://david-barry/sitemap.xml
